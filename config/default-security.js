@@ -1,6 +1,6 @@
 'use strict';
 
-const parent = require('e-champ/config/default-security');
+const parent = require('../e-champ/config/default-security');
 
 module.exports = {
 

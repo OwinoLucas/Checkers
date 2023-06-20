@@ -7,7 +7,7 @@ module.exports = {
     components: {
         'db': {
             settings: {
-                'database': process.env.MONGO_NAME || 'e-champ',
+                'database': process.env.MONGO_NAME || 'test',
             }
         },
         'i18n': {
@@ -15,7 +15,6 @@ module.exports = {
         },
         'arena': {
             games: {
-                'durak': require('./game/durak/default'),
                 'draughts': require('./game/draughts/default')
             }
         }
