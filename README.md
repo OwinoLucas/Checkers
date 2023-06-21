@@ -1,18 +1,11 @@
-# E-Champ App
-
-A server-side app for browser online games
-built on [E-Champ platform](https://github.com/mkhorin/e-champ).
+# Checkers Online Multiplayer Game
+A logical, server-side app for browser online games
 
 Game bots can be used both instead of and together with online opponents.
 
-[Details](https://mkhorin.github.io/e-champ-site)
+### Screenshot
 
-#### Available games
-
-- [Draughts](https://github.com/mkhorin/e-champ-draughts) - a logical game
-- [Durak](https://github.com/mkhorin/e-champ-durak) - a card game
-
-[![E-Champ platform for online games](doc/screen-01.png)](https://mkhorin.github.io/e-champ-site)
+[![Screenshot](doc/screen-01.png)]
 
 ## Docker installation
 
