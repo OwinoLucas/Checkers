@@ -6,6 +6,16 @@ module.exports = {
 
     ...defaults,
 
+    play: {
+        Class: require('../../../draughts/play/CustomDraughts')
+    },
+    actions: {
+        ...defaults.actions,
+        'custom': {
+            Class: require('../../../draughts/action/CustomAction')
+        }
+    },
+
     bots: {
         'thinker-level-1': require('./default-bot-thinker-1'),
         'thinker-level-2': require('./default-bot-thinker-2'),

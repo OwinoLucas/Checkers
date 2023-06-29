@@ -10,33 +10,36 @@ Club.PlayPage = class extends Club.PlayPage {
         if (name === 'draughts') {
             this.customDraughtsPlay();
         }
-
-
+        
+        
     }
+    
 
     customDraughtsPlay () {
         if (Club.CustomDraughtsEndEvent) {
-            return;
+            return; 
         }
         Club.CustomDraughtsEndEvent = class CustomDraughtsEndEvent extends Club.DraughtsEndEvent {
-
-            
-
             finish () {
                 super.finish();
+                // console.log(this.getWinner)
                 // this.sendWebSocketMessage();
                 this.sendPostMessage();
-            }
+            } 
 
             sendWebSocketMessage () {
                 this.play.send('custom', {});
             }
 
+            
             sendPostMessage () {
                 const fetch = new Jam.Fetch;
-                const data = this.data;
+                // console.log(winner)
+                const data = this.data
+                // console.log(CustomDraughts)
+
                
-                return fetch.getText('/custom/some-request', {data})
+                return fetch.execute('/custom/some-request', {data})
                     .then(result => {
                         console.log('Request is done', result);
                     })
@@ -44,6 +47,8 @@ Club.PlayPage = class extends Club.PlayPage {
                         console.error('Request is failed');
                     });
             }
+
+          
         };
         Club.DraughtsEndEvent = Club.CustomDraughtsEndEvent;
     }

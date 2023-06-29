@@ -1,8 +1,7 @@
 'use strict';
-
 const Base = require('../e-champ/evado/component/base/BaseController');
-const {winner} = require('../e-champ-draughts/play/Draughts');
-console.log(winner)
+
+const results = require('../draughts/play/CustomDraughts')
 
 module.exports = class CustomController extends Base {
 
@@ -13,18 +12,19 @@ module.exports = class CustomController extends Base {
             }
         };
     }
-
+    
     async actionSomeRequest () {
         const params = this.getPostParams();
-   
-        console.log(params.data)
-        console.log(winner)
+        // console.log(results.)
         if (!params.data) {
             throw new BadRequest('No valid request data');
         }
         this.send(params.data);
     }
+
 };
 module.exports.init(module);
 
 const BadRequest = require('../areto/error/http/BadRequest');
+
+
