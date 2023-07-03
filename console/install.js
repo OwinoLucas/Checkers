@@ -6,8 +6,8 @@
  * node console/install [--config name] [--skipAssets true]
  */
 const Application = require('../Application');
-const Console = require('../e-champ/evado/console/Console');
-const AssetConsole = require('../e-champ/console/AssetConsole');
+const Console = require('evado/console/Console');
+const AssetConsole = require('e-champ/console/AssetConsole');
 const params = Console.parseProcessArguments();
 const instance = new Console({Application, AssetConsole, params});
 

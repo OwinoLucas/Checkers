@@ -8,7 +8,7 @@
  * node console/data --action clear [--meta document] [--files true]
  */
 const Application = require('../Application');
-const Console = require('../e-champ/evado/console/Console');
+const Console = require('evado/console/Console');
 const params = Console.parseProcessArguments();
 const instance = new Console({Application, params});
 

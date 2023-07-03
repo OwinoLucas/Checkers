@@ -1,7 +1,6 @@
 'use strict';
-const Base = require('../e-champ/evado/component/base/BaseController');
+const Base = require('evado/component/base/BaseController');
 
-const results = require('../draughts/play/CustomDraughts')
 
 module.exports = class CustomController extends Base {
 
