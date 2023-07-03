@@ -22,8 +22,12 @@ Club.PlayPage = class extends Club.PlayPage {
         Club.CustomDraughtsEndEvent = class CustomDraughtsEndEvent extends Club.DraughtsEndEvent {
             finish () {
                 super.finish();
-                // console.log(this.getWinner)
+
                 // this.sendWebSocketMessage();
+                // get player IDs
+                const winnerId = this.data.winnerId;
+                const loserId = this.data.loserId;
+                
                 this.sendPostMessage();
             } 
 
@@ -34,14 +38,14 @@ Club.PlayPage = class extends Club.PlayPage {
             
             sendPostMessage () {
                 const fetch = new Jam.Fetch;
-                // console.log(winner)
-                const data = this.data
-                // console.log(CustomDraughts)
+                
+                const data = this.data.winnerId
+                // console.log(data)
 
                
-                return fetch.execute('/custom/some-request', {data})
+                return fetch.getText('/custom/some-request', {data})
                     .then(result => {
-                        console.log('Request is done', result);
+                        console.log('Request is done, the winner ID is: ', result);
                     })
                     .catch(() => {
                         console.error('Request is failed');

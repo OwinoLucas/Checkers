@@ -14,10 +14,13 @@ module.exports = class CustomAction extends Base {
 
     execute () {
         // place code here
-        this.CustomDraughts.endRound()
-        console.log(this.CustomDraughts.endRound())
+        
         this.play.log('info', 'Custom action is done');
         
+    }
+
+    getWinner () {
+        this.play.endRound()
     }
 
 };
