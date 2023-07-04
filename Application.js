@@ -1,6 +1,6 @@
 'use strict';
 
-const Base = require('e-champ/Application');
+const Base = require('./e-champ/Application');
 
 module.exports = class EChampApplication extends Base {
 

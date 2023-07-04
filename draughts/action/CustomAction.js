@@ -1,6 +1,6 @@
 'use strict';
 
-const Base = require('e-champ-draughts/action/BaseAction');
+const Base = require('../../e-champ-draughts/action/BaseAction');
 
 
 module.exports = class CustomAction extends Base {
