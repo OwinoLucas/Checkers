@@ -1,6 +1,6 @@
 'use strict';
 
-const Base = require('../../e-champ-draughts/play/Draughts');
+const Base = require('e-champ-draughts/play/Draughts');
 
 
 module.exports = class CustomDraughts extends Base {

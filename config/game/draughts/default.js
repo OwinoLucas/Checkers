@@ -1,6 +1,6 @@
 'use strict';
 
-const defaults = require('../../../e-champ-draughts/config/default');
+const defaults = require('e-champ-draughts/config/default');
 
 module.exports = {
 

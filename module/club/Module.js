@@ -1,6 +1,6 @@
 'use strict';
 
-const Base = require('../../e-champ/module/club/Module');
+const Base = require('e-champ/module/club/Module');
 
 module.exports = class ClubModule extends Base {
 

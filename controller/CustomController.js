@@ -1,5 +1,5 @@
 'use strict';
-const Base = require('../e-champ/evado/component/base/BaseController');
+const Base = require('evado/component/base/BaseController');
 
 
 module.exports = class CustomController extends Base {
@@ -24,6 +24,6 @@ module.exports = class CustomController extends Base {
 };
 module.exports.init(module);
 
-const BadRequest = require('../areto/error/http/BadRequest');
+const BadRequest = require('areto/error/http/BadRequest');
 
 
