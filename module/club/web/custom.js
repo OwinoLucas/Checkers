@@ -27,6 +27,7 @@ Club.PlayPage = class extends Club.PlayPage {
                 // get player IDs
                 const winnerId = this.data.winnerId;
                 const loserId = this.data.loserId;
+                const draw1 = loser ? null : this.hands[0];
                 
                 this.sendPostMessage();
             } 
