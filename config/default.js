@@ -24,6 +24,9 @@ module.exports = {
             Class: require('../module/club/Module')
         }
     },
+    params: {
+        'enableSignUp': true,
+    },
     security: require('./default-security'),
     users: require('./default-users')
 };
