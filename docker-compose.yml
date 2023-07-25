@@ -26,7 +26,7 @@ services:
   server:
     image: e-champ-app
     ports:
-      - 3000:3000
+      - 8888:8888
     environment:
       - MONGO_HOST=mongo
     depends_on:
