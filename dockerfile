@@ -8,6 +8,6 @@ RUN npm install --quiet
 
 RUN apk add ttf-freefont
 
-EXPOSE 8888
+EXPOSE 3000
 
-ENV NODE_ENV production
+ENV NODE_ENV development
