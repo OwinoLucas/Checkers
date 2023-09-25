@@ -1,0 +1,32 @@
+<%
+const inputTemplate = _view.get('auth/_input');
+%>
+<%- include(inputTemplate, {
+  attr: 'email',
+  type: 'email',
+  iconClass: 'fas fa-at',
+  autocomplete: 'on'
+}) %>
+
+<%- include(inputTemplate, {
+    attr: 'phonenumber',
+    type: 'phonenumber',
+    iconClass: 'fas fa-phone',
+    autocomplete: 'on'
+  }) %>
+
+<%- include(inputTemplate, {
+  attr: 'password',
+  type: 'password',
+  iconClass: 'fas fa-key',
+  value: ''
+}) %>
+
+
+
+<% if (_controller.user.auth.enableAutoLogin) { %>
+<%- include(_view.get('auth/_checkbox'), {
+  attr: 'rememberMe',
+  value: true
+}) %>
+<% } %>

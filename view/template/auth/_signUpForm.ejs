@@ -1,0 +1,36 @@
+<%
+const inputTemplate = _view.get('auth/_input');
+%>
+<%- include(inputTemplate, {
+  attr: 'name',
+  iconClass: 'fas fa-user'
+}) %>
+
+<%- include(inputTemplate, {
+    attr: 'phonenumber',
+    type: 'phonenumber',
+    iconClass: 'fas fa-phone'
+}) %>
+
+<%- include(inputTemplate, {
+  attr: 'email',
+  type: 'email',
+  iconClass: 'fas fa-at'
+}) %>
+
+<%- include(inputTemplate, {
+  attr: 'password',
+  type: 'password',
+  iconClass: 'fas fa-key',
+  value: '',
+  autocomplete: 'new-password'
+}) %>
+
+<%- include(inputTemplate, {
+  attr: 'passwordRepeat',
+  type: 'password',
+  iconClass: 'fas fa-key',
+  value: '',
+  autocomplete: 'new-password'
+}) %>
+
