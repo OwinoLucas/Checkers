@@ -43,9 +43,10 @@ module.exports = class AuthController extends Base {
         if (this.isGetRequest()) {
             return this.render('signIn', {model});
         }
-        model.captchaAction = this.createAction('captcha');
+        // model.captchaAction = this.createAction('captcha');
         const params = this.getPostParams();
         if (!await model.load(params).login()) {
+            console.log(params)
             return this.render('signIn', {model});
         }
         if (this.user.getIdentity().isVerified()) {
@@ -67,9 +68,10 @@ module.exports = class AuthController extends Base {
         if (this.isGetRequest()) {
             return this.render('signUp', {model});
         }
-        model.captchaAction = this.createAction('captcha');
+        // model.captchaAction = this.createAction('captcha');
         const params = this.getPostParams();
         const user = await model.load(params).register();
+        console.log(params)
         if (!user) {
             return this.render('signUp', {model});
         }
@@ -78,9 +80,10 @@ module.exports = class AuthController extends Base {
         const email = model.get('email');
         const phonenumber = model.get('phonenumber');
         const messageCode = verified
-            ? 'auth.registrationCompleted'
-            : 'auth.verificationSent';
-        const message = this.translate(messageCode, {phonenumber});
+        ? 'auth.registrationCompleted'
+        : 'auth.verificationSent';
+        const message = this.translate(messageCode, {email});
+        console.log(message)
         return this.render('alert', {type, message});
     }
 

@@ -7,16 +7,12 @@ const inputTemplate = _view.get('auth/_input');
 }) %>
 
 <%- include(inputTemplate, {
-    attr: 'phonenumber',
-    type: 'phonenumber',
-    iconClass: 'fas fa-phone'
-}) %>
-
-<%- include(inputTemplate, {
   attr: 'email',
   type: 'email',
   iconClass: 'fas fa-at'
 }) %>
+
+<%- include(_view.get('auth/_phone')) %>
 
 <%- include(inputTemplate, {
   attr: 'password',
@@ -34,3 +30,5 @@ const inputTemplate = _view.get('auth/_input');
   autocomplete: 'new-password'
 }) %>
 
+
+<% script('app/auth.js'); %>

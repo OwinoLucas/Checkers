@@ -28,5 +28,6 @@ module.exports = {
         'enableSignUp': true,
     },
     security: require('./default-security'),
-    users: require('./default-users')
+    users: require('./default-users'),
+    classes: require('./default-classes'),
 };

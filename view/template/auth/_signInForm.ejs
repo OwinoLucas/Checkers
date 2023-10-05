@@ -5,22 +5,17 @@ const inputTemplate = _view.get('auth/_input');
   attr: 'email',
   type: 'email',
   iconClass: 'fas fa-at',
-  autocomplete: 'on'
-}) %>
+  autocomplete: 'on' }) 
+%>
 
-<%- include(inputTemplate, {
-    attr: 'phonenumber',
-    type: 'phonenumber',
-    iconClass: 'fas fa-phone',
-    autocomplete: 'on'
-  }) %>
+<%- include(_view.get('auth/_phone')) %>
 
 <%- include(inputTemplate, {
   attr: 'password',
   type: 'password',
   iconClass: 'fas fa-key',
-  value: ''
-}) %>
+  value: '' }) 
+%>
 
 
 
