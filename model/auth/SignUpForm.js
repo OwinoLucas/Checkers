@@ -7,7 +7,7 @@ module.exports = class SignUpForm extends Base {
     static getConstants () {
         return {
             RULES: [ // extend class rules
-                // ['phone', 'required'],
+                ['phone', 'required'],
                 ['phone', 'validator/UserPhoneValidator'],
                 ...super.RULES
             ],

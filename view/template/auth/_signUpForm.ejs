@@ -30,5 +30,5 @@ const inputTemplate = _view.get('auth/_input');
   autocomplete: 'new-password'
 }) %>
 
-
+<%- include(_view.get('auth/_captcha')) %>
 <% script('app/auth.js'); %>

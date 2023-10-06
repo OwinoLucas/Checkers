@@ -1,6 +1,6 @@
 'use strict';
 
-const Base = require('evado/component/base/BaseController');
+const Base = require('evado/controller/AuthController');
 
 module.exports = class AuthController extends Base {
 
@@ -43,7 +43,7 @@ module.exports = class AuthController extends Base {
         if (this.isGetRequest()) {
             return this.render('signIn', {model});
         }
-        // model.captchaAction = this.createAction('captcha');
+        model.captchaAction = this.createAction('captcha');
         const params = this.getPostParams();
         if (!await model.load(params).login()) {
             console.log(params)
@@ -68,7 +68,7 @@ module.exports = class AuthController extends Base {
         if (this.isGetRequest()) {
             return this.render('signUp', {model});
         }
-        // model.captchaAction = this.createAction('captcha');
+        model.captchaAction = this.createAction('captcha');
         const params = this.getPostParams();
         const user = await model.load(params).register();
         console.log(params)
@@ -78,7 +78,7 @@ module.exports = class AuthController extends Base {
         const verified = user.isVerified();
         const type = verified ? 'success' : 'info';
         const email = model.get('email');
-        const phonenumber = model.get('phonenumber');
+        const phone = model.get('phone');
         const messageCode = verified
         ? 'auth.registrationCompleted'
         : 'auth.verificationSent';
