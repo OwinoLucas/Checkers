@@ -12,5 +12,9 @@ module.exports = class User extends Base {
             ]
         };
     }
+
+    findByPhone(phone) {
+        return this.find({phone});
+    }
 };
 module.exports.init(module);
