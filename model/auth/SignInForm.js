@@ -30,7 +30,7 @@ module.exports = class SignInForm extends Base {
             const duration = this.get('rememberMe') ? this.rememberPeriod : 0;
             await this.user.login({identity, duration});
         } catch (err) {
-            this.addError('phone', err);
+            this.addError('email', err);
             console.log(err)
         }
         await this.updateRateLimit();
