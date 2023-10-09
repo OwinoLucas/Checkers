@@ -13,6 +13,10 @@ module.exports = class User extends Base {
         };
     }
 
+    getPhone () {
+        return this.get('phone')
+    }
+
     findByPhone(phone) {
         return this.find({phone});
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-// const USER_PHONE_REGEX = /^(\+254\s?)?([17]\d{2}[-\s]?\d{6}|1\d{8}|07\d{8}|07\s?\d{3}\s?\d{3}\s?\d{3})$/;
+const USER_PHONE_REGEX = /^(\+254\s?)?([17]\d{2}[-\s]?\d{6}|1\d{8}|07\d{8}|07\s?\d{3}\s?\d{3}\s?\d{3})$/;
 
 
 const Base = require('areto/validator/NumberValidator');

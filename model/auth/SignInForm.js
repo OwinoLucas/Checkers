@@ -26,7 +26,7 @@ module.exports = class SignInForm extends Base {
             const email = this.get('email');
             const phone = this.get('phone');
             const password = this.get('password');
-            const identity = await service.login(phone, password, this.user);
+            const identity = await service.login(email, password, this.user);
             const duration = this.get('rememberMe') ? this.rememberPeriod : 0;
             await this.user.login({identity, duration});
         } catch (err) {
