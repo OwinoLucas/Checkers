@@ -11,4 +11,5 @@ module.exports = {
     'model/User': require('../model/User'),
 
     'validator/UserPhoneValidator': require('../component/validator/UserPhoneValidator'),
+    'security/PasswordAuthService': require('../component/security/PasswordAuthService'),
 };

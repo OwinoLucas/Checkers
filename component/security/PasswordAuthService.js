@@ -36,6 +36,7 @@ module.exports = class PasswordAuthService extends Base {
         }
         const query = this.spawnPassword().findByUser(identity.getId());
         const model = await query.one();
+        console.log(model)
         if (!model || !model.check(password)) {
             return this.failLogin(phone, user);
         }
@@ -48,6 +49,7 @@ module.exports = class PasswordAuthService extends Base {
     async failLogin (phone, user) {
         const ip = user.getIp();
         const data = {phone, ip};
+        console.log(data)
         this.module.log('warn', 'Authentication failed', data);
         await this.module.emit('auth.fail', data);
         throw 'auth.invalidAuth';

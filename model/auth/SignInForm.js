@@ -6,16 +6,39 @@ module.exports = class SignInForm extends Base {
 
     static getConstants () {
         return {
-            RULES: [ // extend class rules
-                ['phone', 'required'],
+            RULES: [
+                [['phone', 'password'], 'required'],
                 ['phone', 'validator/UserPhoneValidator'],
-                ...super.RULES
+                ['rememberMe', 'checkbox'],
+                ['password', 'validator/PasswordValidator'],
+                
             ],
+            // RULES: [ // extend class rules
+            //     ['phone', 'required'],
+            //     ['phone', 'validator/UserPhoneValidator'],
+            //     ...super.RULES
+            // ],
             ATTR_LABELS: {
                 phone: 'Phone'
-            }
+            },
+           
         };
     }
+
+     /**
+     * @param {Object} config
+     * @param {Object} config.user - WebUser instance
+     */
+    constructor (config) {
+        super({
+            rateLimit: config.module.get('rateLimit'),
+            rateLimitType: 'signIn',
+            rememberPeriod: 7 * 24 * 3600,
+            captchaEnabled: false,
+            ...config
+        });
+    }
+
 
     async login () {
         if (!await this.validate()) {
@@ -23,15 +46,13 @@ module.exports = class SignInForm extends Base {
         }
         try {
             const service = this.spawn('security/PasswordAuthService');
-            const email = this.get('email');
             const phone = this.get('phone');
             const password = this.get('password');
-            const identity = await service.login(email, password, this.user);
+            const identity = await service.login(phone, password, this.user);
             const duration = this.get('rememberMe') ? this.rememberPeriod : 0;
             await this.user.login({identity, duration});
         } catch (err) {
-            this.addError('email', err);
-            console.log(err)
+            this.addError('phone', err);
         }
         await this.updateRateLimit();
    

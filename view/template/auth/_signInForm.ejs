@@ -1,12 +1,6 @@
 <%
 const inputTemplate = _view.get('auth/_input');
 %>
-<%- include(inputTemplate, {
-  attr: 'email',
-  type: 'email',
-  iconClass: 'fas fa-at',
-  autocomplete: 'on' }) 
-%>
 
 <%- include(_view.get('auth/_phone')) %>
 
@@ -16,7 +10,6 @@ const inputTemplate = _view.get('auth/_input');
   iconClass: 'fas fa-key',
   value: '' }) 
 %>
-
 
 
 <% if (_controller.user.auth.enableAutoLogin) { %>
