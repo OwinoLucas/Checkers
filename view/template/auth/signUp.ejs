@@ -1,0 +1,33 @@
+<%
+const title = _t('Sign up');
+const error = model.getFirstError('register');
+
+layout(_view.get('_layout/auth'));
+block('title', title);
+%>
+
+<p class="login-box-msg">
+  <%- _t('auth.registerNewUser') %>
+</p>
+
+<% if (error) { %>
+<div class="alert-danger alert"><%- _t(error) %></div>
+<% } %>
+
+<form method="post" class="form">
+
+  <%- include(_view.get('auth/_signUpForm')) %>
+
+  <div class="form-submit form-attr form-group">
+    <button type="submit" class="btn-primary btn">
+      <%- title %>
+    </button>
+  </div>
+</form>
+
+<div class="login-box-footer">
+  <p class="text-muted mt-3">Already have and account?</p>
+  <a href="auth/sign-in" class="btn-outline-primary btn">
+    <%- _t('Sign in') %>
+  </a>
+</div>

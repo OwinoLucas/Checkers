@@ -1,0 +1,33 @@
+<%
+const success = _controller.getFlash('success').join();
+const title = _t('Sign in');
+
+layout(_view.get('_layout/auth'));
+block('title', title);
+%>
+
+<% if (success) { %>
+<div class="alert alert-success"><%- success %></div>
+<% } %>
+
+<p class="login-box-msg"><%- _t('auth.signInToStart') %></p>
+
+<form method="post" class="form">
+
+  <%- include(_view.get('auth/_signInForm')) %>
+
+  <div class="form-submit form-attr form-group">
+    <button type="submit" class="btn-primary btn">
+      <%- title %>
+    </button>
+  </div>
+</form>
+
+<div class="login-box-footer">
+    <p class="text-muted mt-3">Don't have an account?</p>
+<% if (_controller.canSignUp()) { %>
+  <a href="auth/sign-up" class="btn-outline-primary btn"><%- _t('auth.register') %></a>
+<% } if (_controller.canResetPassword()) { %>
+  <a href="auth/request-reset" class="btn-outline-secondary btn"><%- _t('auth.forgotPassword') %></a>
+<% } %>
+</div>

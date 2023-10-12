@@ -26,6 +26,7 @@ module.exports = {
     },
     params: {
         'enableSignUp': true,
+        'enablePasswordReset': true,
     },
     security: require('./default-security'),
     users: require('./default-users'),
