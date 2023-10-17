@@ -6,17 +6,19 @@ module.exports = class CustomOptions extends Base {
 
     static getConstants () {
         return {
-            ATTRS: [{
-                name: 'losing',
-                label: 'Losing draughts',
-                view: 'checkbox',
-                format: 'boolean'
-            }, {
-                name: 'backCapture',
-                label: 'Uncrowned piece can jump backwards',
-                view: 'checkbox',
-                format: 'boolean'
-            }, {
+           ATTRS: [ // {
+            //     name: 'losing',
+            //     label: 'Losing draughts',
+            //     view: 'checkbox',
+            //     format: 'boolean'
+            // }, 
+            // {
+            //     name: 'backCapture',
+            //     label: 'Uncrowned piece can jump backwards',
+            //     view: 'checkbox',
+            //     format: 'boolean'
+            // }, 
+            {
                 name: 'optionalCapture',
                 label: 'Optional capture',
                 view: 'checkbox',
@@ -28,7 +30,7 @@ module.exports = class CustomOptions extends Base {
                 format: 'boolean'
             }],
             RULES: [
-                [['losing', 'backCapture', 'optionalCapture', 'darkFirst'],  'checkbox']
+                [['optionalCapture', 'darkFirst'],  'checkbox']
             ]
         };
     }
