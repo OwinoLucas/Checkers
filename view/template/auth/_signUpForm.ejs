@@ -6,12 +6,6 @@ const inputTemplate = _view.get('auth/_input');
   iconClass: 'fas fa-user'
 }) %>
 
-<%- include(inputTemplate, {
-  attr: 'email',
-  type: 'email',
-  iconClass: 'fas fa-at'
-}) %>
-
 <%- include(_view.get('auth/_phone')) %>
 
 <%- include(inputTemplate, {

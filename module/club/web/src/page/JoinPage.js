@@ -4,6 +4,7 @@ Club.JoinPage = class JoinPage extends Club.Page {
         super.init();
         this.form = this.getHandler(Club.Form);
         this.getCommand('join').click(this.onJoin.bind(this));
+        
     }
 
     activate () {
@@ -11,7 +12,6 @@ Club.JoinPage = class JoinPage extends Club.Page {
         this.form.clear();
         this.form.setValue('room', this.club.getRoom());
         this.form.setValue('player', this.club.getPlayer());
-        this.club.getData('userPhone')
         this.form.loadRooms();
     }
 

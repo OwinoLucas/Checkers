@@ -7,9 +7,8 @@ module.exports = class SignUpForm extends Base {
     static getConstants () {
         return {
             RULES: [
-                [['name', 'email', 'password', 'passwordRepeat', 'phone'], 'required'],
+                [['name', 'password', 'passwordRepeat', 'phone'], 'required'],
                 ['name', 'validator/UserNameValidator'],
-                ['email', 'email'],
                 ['password', 'validator/PasswordValidator'],
                 ['passwordRepeat', 'compare', {compareAttr: 'password'}],
                 ['phone', 'validator/UserPhoneValidator'],
@@ -18,6 +17,26 @@ module.exports = class SignUpForm extends Base {
                 phone: 'Phone'
             }
         };
+    }
+
+    async register () {
+        if (!await this.validate()) {
+            return false;
+        }
+        try {
+            this.set('verified', !this.module.params.enableSignUpVerification);
+            const service = this.spawn('security/PasswordAuthService');
+            const user = await service.register(this.getAttrMap());
+            if (!user.isVerified()) {
+                const verification = await service.createVerification(user);
+                await this.module.getMailer().sendVerification(verification, user);
+            }
+            await this.user.log('register', undefined, user);
+            return user;
+        } catch (err) {
+            this.addError('register', err);
+            console.log(err)
+        }
     }
 };
 module.exports.init(module);

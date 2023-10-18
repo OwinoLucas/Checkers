@@ -58,3 +58,11 @@ Club.PlayPage = class extends Club.PlayPage {
         Club.DraughtsEndEvent = Club.CustomDraughtsEndEvent;
     }
 }
+
+Club.JoinPage = class CustomJoinPage extends Club.JoinPage {
+    init() {
+        super.init();
+        const phone = this.club.getData('userPhone');
+        console.log('User phone', phone);
+    }
+};

@@ -28,9 +28,9 @@
     <div class="alert-error alert-danger alert"></div>
 
     <div class="form-attr form-group hidden">
-      <input type="hidden" name="player">
+      <input type="text" name="player">
     </div>
-
+    
     <div class="form-attr form-group row required" data-handler="FormAttr">
       <label class="col-lg-3 col-form-label" data-t="">Your name</label>
       <div class="col-lg-9">
@@ -38,11 +38,17 @@
         <div class="error-block"></div>
       </div>
     </div>
-    
+    <div class="form-attr form-group row">
+      <label class="col-lg-3 col-form-label" data-t="">Your number</label>
+      <div class="col-lg-9">
+        <input type="text" id="userPhoneNumber" value="<%- _controller.user.identity?.getPhone() %>" disabled>
+      </div>
+      
+    </div>
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-4">
-        <button id="getPhoneNumberButton">Phone Number</button>
+        <button class="btn-outline-primary btn" id="rasimuWedger" onclick="rasimuWedger()">Wedger</button>
       </div>
       <div class="col-md-5"></div>
     </div>
@@ -128,3 +134,26 @@
     </div>
   </div>
 </div>
+
+
+<script src="../../../../../mpesa/payment.js"></script>
+<script>
+  function rasimuWedger() {
+    const amount = prompt('Enter the amount:'); // Prompt the user for the amount
+    if (amount === null || amount === '') {
+      alert('Please enter a valid amount.');
+      return;
+    }
+
+    const phoneNumber = document.getElementById('userPhoneNumber').value;
+
+    // Call the rasimuWedger function from payment.js
+    rasimuWedger(amount, phoneNumber);
+  }
+</script>
+
+
+
+
+
+

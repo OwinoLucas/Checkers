@@ -7,9 +7,31 @@ module.exports = class User extends Base {
     static getConstants () {
         return {
             ATTRS: [
-                ...super.ATTRS,
-                'phone'
-            ]
+                '_id',
+                'name',
+                'phone',
+                'verified',
+                'blocked',
+                'unlockAt',
+                'expiredPassword',
+                'createdAt',
+                'updatedAt',
+                'authKey'
+            ],
+            INDEXES: [
+                [{phone: 1}, {unique: true}]
+            ],
+            RULES: [
+                [['name', 'phone'], 'required'],
+                ['name', 'validator/UserNameValidator'],
+                [['blocked', 'verified', 'expiredPassword'], 'checkbox'],
+                ['unlockAt', 'date'],
+                ['name', 'unique', {
+                    ignoreCase: true,
+                    skipOnAnyError: true,
+                    message: 'auth.nameAlreadyTaken'
+                }],
+            ],
         };
     }
 

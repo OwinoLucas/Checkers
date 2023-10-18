@@ -67,6 +67,6 @@ unirest
         });
     };
 
-    // Call the simulation function
+  
     rasimuWedger(amount, phone);
   });
