@@ -10,6 +10,7 @@ module.exports = class User extends Base {
                 '_id',
                 'name',
                 'phone',
+                'balance',
                 'verified',
                 'blocked',
                 'unlockAt',
@@ -37,6 +38,10 @@ module.exports = class User extends Base {
 
     getPhone () {
         return this.get('phone')
+    }
+
+    getBalance () {
+        return this.get('balance')
     }
 
     findByPhone(phone) {

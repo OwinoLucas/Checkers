@@ -14,7 +14,7 @@ module.exports = class SignUpForm extends Base {
                 ['phone', 'validator/UserPhoneValidator'],
             ],
             ATTR_LABELS: {
-                phone: 'Phone'
+                phone: 'Phone e.g(2547XXXXXXXX)'
             }
         };
     }

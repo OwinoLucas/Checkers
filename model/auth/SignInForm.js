@@ -13,13 +13,8 @@ module.exports = class SignInForm extends Base {
                 ['password', 'validator/PasswordValidator'],
                 
             ],
-            // RULES: [ // extend class rules
-            //     ['phone', 'required'],
-            //     ['phone', 'validator/UserPhoneValidator'],
-            //     ...super.RULES
-            // ],
             ATTR_LABELS: {
-                phone: 'Phone'
+                phone: 'Phone e.g(2547XXXXXXXX)'
             },
            
         };
