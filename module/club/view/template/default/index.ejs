@@ -9,6 +9,7 @@ const metaUrl = _url('/api/base/meta/');
 const roomUrl = _url('/club/room/');
 const isGuest = _controller.user.isGuest();
 const phone = _controller.user.identity?.getPhone();
+const name = _controller.user.identity?.getTitle();
 %>
 
 <div class="club"
@@ -19,7 +20,9 @@ const phone = _controller.user.identity?.getPhone();
    data-meta-url="<%- metaUrl %>"
    data-room-url="<%- roomUrl %>"
    data-socket-path="<%- arena.socketPath %>"
-   data-user-phone="<%- phone %>">
+   data-user-phone="<%- phone %>"
+   data-user-name="<%- name %>">
+   
    
 
   <%- include(_view.get('default/_main'), {isGuest}) %>

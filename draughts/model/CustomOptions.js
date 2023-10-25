@@ -18,19 +18,20 @@ module.exports = class CustomOptions extends Base {
             //     view: 'checkbox',
             //     format: 'boolean'
             // }, 
+            // {
+            //     name: 'optionalCapture',
+            //     label: 'Optional capture',
+            //     view: 'checkbox',
+            //     format: 'boolean',
+            // },
             {
-                name: 'optionalCapture',
-                label: 'Optional capture',
-                view: 'checkbox',
-                format: 'boolean'
-            }, {
                 name: 'darkFirst',
-                label: 'Dark turn first',
+                label: 'Dark piece starts',
                 view: 'checkbox',
                 format: 'boolean'
             }],
             RULES: [
-                [['optionalCapture', 'darkFirst'],  'checkbox']
+                [['darkFirst'],  'checkbox']
             ]
         };
     }

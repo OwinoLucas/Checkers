@@ -24,7 +24,7 @@ module.exports = class User extends Base {
             ],
             RULES: [
                 [['name', 'phone'], 'required'],
-                ['name', 'validator/UserNameValidator'],
+                ['name', 'validator/UserNameValidator'],     
                 [['blocked', 'verified', 'expiredPassword'], 'checkbox'],
                 ['unlockAt', 'date'],
                 ['name', 'unique', {
@@ -32,7 +32,11 @@ module.exports = class User extends Base {
                     skipOnAnyError: true,
                     message: 'auth.nameAlreadyTaken'
                 }],
+                ['balance', 'number', { 
+                    default: 0
+                }],
             ],
+            
         };
     }
 

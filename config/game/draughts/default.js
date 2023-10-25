@@ -25,6 +25,10 @@ module.exports = {
         'thinker-level-4': require('./default-bot-thinker-4'),
         'thinker-level-5': require('./default-bot-thinker-5')
     },
+    options: {
+        ...defaults.options,
+        optionalCapture: true
+    },
     webPage: null,
     defaultBot: 'thinker-level-1',
     defaultOpponents: [],

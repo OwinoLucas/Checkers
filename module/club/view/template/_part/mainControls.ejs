@@ -1,17 +1,50 @@
 <!-- _part/mainControls -->
 <div class="main-controls row">
     <div class="col-lg-4 col-md-6">
-      <button class="btn-success btn" data-command="create">
-        <span data-t="">New Game</span>
+      
+      <div class="folder card mb-3">
+        <div class="card-body">
+          <h4 class="text-success">Create Game</h4>
+          <p>
+            Create a new room.
+            Choose the type of opponent and who gets to start.
+            Public rooms are available for everyone to join.
+            To access a hidden room, you need to reveal its identifier.
+          </p>
+        </div>
+      </div>
+      <button class="btn-success btn" data-command="create" style="height: 125px;">
+        <span data-t="">Create Game</span>
       </button>
     </div>
     <div class="col-lg-4 col-md-6">
-      <button class="btn-primary btn" data-command="join">
+      
+      <div class="folder card mb-3">
+        <div class="card-body">
+          <h4 class="text-primary">Join Active Game</h4>
+          <p>
+            Join a room that gathers participants.
+            Public rooms are available on the list.
+            To join a hidden room, you must explicitly provide its identifier.
+          </p>
+        </div>
+      </div>
+      <button class="btn-primary btn" data-command="join" style="height: 125px;">
         <span data-t="">Join</span>
       </button>
     </div>
     <div class="col-lg-4 col-md-6">
-      <button class="btn-danger btn" data-command="play">
+      
+      <div class="folder card mb-3">
+        <div class="card-body">
+          <h4 class="text-danger">Continue Playing</h4>
+          <p>
+            All participants gather here before playing.
+            Once started, you can return to the current game after reloading the browser page.
+          </p>
+        </div>
+      </div>
+      <button class="btn-danger btn" data-command="play" style="height: 125px;">
         <span data-t="">Continue</span>
       </button>
     </div>

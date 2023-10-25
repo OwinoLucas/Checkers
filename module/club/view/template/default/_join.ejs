@@ -32,14 +32,14 @@
     </div>
     
     <div class="form-attr form-group row required" data-handler="FormAttr">
-      <label class="col-lg-3 col-form-label" data-t="">Your name</label>
+      <label class="col-lg-3 col-form-label" data-t="">Player name</label>
       <div class="col-lg-9">
-        <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
+        <input type="text" name="userPlayerName" class="form-control" required data-storage-key="userPlayerName" value="<%= _controller.user.identity?.getTitle() %>">
         <div class="error-block"></div>
       </div>
     </div>
     <div class="form-attr form-group row">
-      <label class="col-lg-3 col-form-label" data-t="">Your number</label>
+      <label class="col-lg-3 col-form-label" data-t="">Player number</label>
       <div class="col-lg-9">
         <input type="text" id="userPhoneNumber" value="<%- _controller.user.identity?.getPhone() %>" disabled>
       </div>
@@ -60,13 +60,13 @@
         <input name="game" type="hidden" value="">
         <div class="form-game-list form-check-list">
           <div class="form-check">
-            <input class="form-check-input" value="" type="radio">
+            <input class="form-check-input" value="{{name}}" type="radio">
             <label class="form-check-label" data-t="">All games</label>
           </div>
         </div>
         <template data-id="game">
           <div class="form-check">
-            <input class="form-check-input" value="{{name}}" type="radio">
+            <input class="form-check-input" value="{{name}}" type="radio" checked>
             <label class="form-check-label">{{label}}</label>
           </div>
         </template>

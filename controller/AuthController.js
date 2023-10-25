@@ -71,20 +71,11 @@ module.exports = class AuthController extends Base {
         model.captchaAction = this.createAction('captcha');
         const params = this.getPostParams();
         const user = await model.load(params).register();
-        console.log(params)
         if (!user) {
             return this.render('signUp', {model});
         }
-        const verified = user.isVerified();
-        const type = verified ? 'success' : 'info';
-        const email = model.get('email');
-        const phone = model.get('phone');
-        const messageCode = verified
-        ? 'auth.registrationCompleted'
-        : 'auth.verificationSent';
-        const message = this.translate(messageCode, {email});
-        console.log(message)
-        return this.render('alert', {type, message});
+        await this.user.login({identity: user});
+        return this.goHome();
     }
 
     async actionChangePassword () {

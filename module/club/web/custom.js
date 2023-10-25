@@ -43,7 +43,6 @@ Club.PlayPage = class extends Club.PlayPage {
                 const data = this.data.winnerId
                 // console.log(data)
 
-               
                 return fetch.getText('/custom/some-request', {data})
                     .then(result => {
                         console.log('Request is done, the winner ID is: ', result);
@@ -64,5 +63,21 @@ Club.JoinPage = class CustomJoinPage extends Club.JoinPage {
         super.init();
         const phone = this.club.getData('userPhone');
         console.log('User phone', phone);
+    }
+};
+
+Club.NewPage = class CustomNewPage extends Club.NewPage {
+    init() {
+        super.init();
+        const name = this.club.getData('userName');
+        console.log('Player Name', name);
+    }
+};
+
+
+Club.FormGames = class CustomFormGames extends Club.FormGames {
+    init() {
+        super.init();
+        this.$list.find('input').eq(1).click();
     }
 };
