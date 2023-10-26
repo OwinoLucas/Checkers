@@ -69,8 +69,9 @@ Club.JoinPage = class CustomJoinPage extends Club.JoinPage {
 Club.NewPage = class CustomNewPage extends Club.NewPage {
     init() {
         super.init();
-        const name = this.club.getData('userName');
-        console.log('Player Name', name);
+        // const name = this.club.getData('userName');
+        // console.log('Player Name', name);
+        Jam.localStorage.set('userPlayerName', this.club.getData('userName'));
     }
 };
 

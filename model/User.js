@@ -32,9 +32,9 @@ module.exports = class User extends Base {
                     skipOnAnyError: true,
                     message: 'auth.nameAlreadyTaken'
                 }],
-                ['balance', 'number', { 
-                    default: 0
-                }],
+                ['balance', 'number'], // value must be a number
+                ['balance', 'default', {value: 0}], // sets default value if there is no value
+                ['balance', 'unsafe'] // prevent loading from client request
             ],
             
         };
